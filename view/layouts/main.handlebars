@@ -1,0 +1,106 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{{title}}}</title>
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link rel="icon" href="../../public/assets/images/logo.png" type="image/icon type" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="container-fluid bg-second sticky-md-top">
+        <div class="container p-0 shadow-lg">
+            <header
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between py-3 mx-4 bg-dark col-main">
+                <a href="/" class="d-none d-md-flex align-items-center col-lg-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                    <img src="../public/assets/images/logo.png" width="40" height="32" alt="BarBox Logo" />
+                </a>
+
+                {{#if logged}}
+                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0 {{#if league}}none-mobile{{/if}}">
+                    <li><a href="#" class="nav-link px-2 {{#if home}}link-secondary{{else}}link-dark{{/if}}"
+                            onclick="redirect('/')">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 {{#if league}}link-secondary{{else}}link-dark{{/if}}"
+                            onclick="redirect('/league')">Leagues</a></li>
+                    <li><a href="#" class="nav-link px-2 {{#if live}}link-secondary{{else}}link-dark{{/if}}"
+                            onclick="redirect('/live')">Live</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark" onclick="redirect('/coming-soon')">Leaderboards</a></li>
+                    <li><a href="#" class="nav-link px-2 {{#if profile}}link-secondary{{else}}link-dark{{/if}}"
+                            onclick="redirect('/profile')">Profile</a></li>
+                </ul>
+                {{else}}
+                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 {{#if home}}link-secondary{{else}}link-dark{{/if}}"
+                            onclick="redirect('/')">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+                    <li><a href="#pricing" class="nav-link px-2 link-dark">Pricing</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+                    <li><a href="#about" class="nav-link px-2 link-dark">About</a></li>
+                </ul>
+                {{/if}}
+
+                <div class="col-lg-3 text-end" id="loginSection">
+                    {{#if logged}}
+                    <button type="button" class="btn login-btn me-2"
+                        onclick="redirect('/profile')">{{username}}</button>
+                    <button type="button" class="btn btn-primary register-btn"
+                        onclick="redirect('/api/v1/logout')">Logout</button>
+                    {{else}}
+                    <button type="button" class="btn login-btn me-2" onclick="redirect('/login')">Login</button>
+                    <button type="button" class="btn btn-primary register-btn"
+                        onclick="redirect('/login')">Sign-up</button>
+                    {{/if}}
+
+                </div>
+            </header>
+        </div>
+    </div>
+
+    {{{body}}}
+
+    <!-- FOOTER -->
+    <div class="container">
+        <footer class="d-none d-md-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; 2022 BarBox Inc.<span><br/><a href="https://www.turbinestudios.com.au/" target="_blank">Turbine Studios</a></span></p>
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="../../public/assets/images/logo.png" alt="BarBox Logo" height="40" width="40">
+            </a>
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
+            </ul>
+        </footer>
+
+        <footer class="d-xs-block d-md-none py-3 my-4 border-top">
+            <p class="d-block row mb-2 text-muted text-center">&copy; 2022 BarBox Inc.</p>
+            <a href="/"
+                class="col d-flex align-items-center justify-content-center mt-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="../../public/assets/images/logo.png" alt="BarBox Logo" height="40" width="40">
+            </a><br/>
+            <a href="https://www.turbinestudios.com.au/" target="_blank"><p class="d-block row mb-2 text-muted text-center">Turbine Studios</p></a>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
