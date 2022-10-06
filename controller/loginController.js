@@ -1,4 +1,4 @@
-const helper = require('../utils/helper');
+// const helper = require('../utils/helper');
 
 const loginGet = ("/login", (req, res) => {
     res.render('login', {

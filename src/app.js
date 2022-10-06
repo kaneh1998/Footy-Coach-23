@@ -8,7 +8,13 @@ const upload = multer();
 const port = 3000;                      // Port number we are opening
 const path = require('path');
 const session = require('express-session');
+const loginRoutes = require('../routes/loginRoutes');
 const SQLiteStore = require('connect-sqlite3')(session);
+const mongoose = require('mongoose');
+
+const uri = "mongodb+srv://kane:kane123@cluster0.ypzmt.mongodb.net/AFL23?retryWrites=true&w=majority";
+
+mongoose.connect(uri).then(() => console.log("Connected to DB")).catch((err) => console.log(err));
 
 //! Middleware
 app.use(session({
@@ -37,7 +43,7 @@ app.set('views', path.join(__dirname, '../view'));
 //! Routing
 app.get("/", async (req, res) => {
     res.render('home', {
-        title: 'Title',
+        title: 'Footy Coach 2023',
         logged: req.session.loggedIn,
         username: req.session.username,
         home: true
