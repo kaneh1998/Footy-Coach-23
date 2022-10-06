@@ -12,7 +12,7 @@ const loginRoutes = require('../routes/loginRoutes');
 const SQLiteStore = require('connect-sqlite3')(session);
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://kane:kane123@cluster0.ypzmt.mongodb.net/AFL23?retryWrites=true&w=majority";
+const uri = `mongodb+srv://kane:${process.env.MONGODB_KEY}@cluster0.ypzmt.mongodb.net/AFL23?retryWrites=true&w=majority`;
 
 mongoose.connect(uri).then(() => console.log("Connected to DB")).catch((err) => console.log(err));
 
