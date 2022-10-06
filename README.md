@@ -1,9 +1,2 @@
-### NodeJS + Express + Handlebars Template File
+### AFL Football Management Game
 
-# Includes
-* Express
-* Express-sessions
-* Handlebars
-* SQLite Sessions
-* Dotenv
-* Multer
