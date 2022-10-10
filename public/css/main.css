@@ -24,6 +24,19 @@
     color: var(--secondary) !important;
 }
 
+.btn-secondary {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+    box-shadow: none !important;
+    color: var(--primary) !important;
+}
+
 .display-4 {
     font-weight: 600 !important;
+}
+
+.login-form {
+    border: var(--secondary) 1px solid;
+    border-radius: 5px;
+    background-color: var(--primary);
 }
